@@ -295,7 +295,7 @@ export async function logoutByRefreshToken(
 
 export async function getSsoConfig(domainOrEmail: string): Promise<SsoConfig> {
 	const response = await fetch(
-		`${EDUSIGN_API_BASE}/integrations/sso/${domainOrEmail}`,
+		`${EDUSIGN_API_BASE}/integrations/sso/${encodeURIComponent(domainOrEmail)}`,
 	);
 
 	const result = await handleResponse<SsoConfig[]>(response);
