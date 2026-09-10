@@ -299,7 +299,6 @@ export async function getSsoConfig(domainOrEmail: string): Promise<SsoConfig> {
 	);
 
 	const result = await handleResponse<SsoConfig[]>(response);
-	console.log("getSsoConfig result:", result);
 	if (Array.isArray(result) && result.length > 1) {
 		throw new AmbiguousSsoConfigError();
 	}
